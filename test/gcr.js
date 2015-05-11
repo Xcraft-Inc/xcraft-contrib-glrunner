@@ -92,57 +92,6 @@ describe('gcr', function() {
       build.projectDir.should.equal('/tmp/gcr-builds/project-1')
       build.should.have.property('state', 'waiting')
     })
-
-    it('should run with clone', function(done) {
-      this.timeout(10000)
-      var sandbox = sinon.sandbox.create()
-      sandbox.stub(build, 'update', function(cb) {
-        cb && cb()
-      })
-      var count = 0
-      function next() {
-        count++
-        if (count === 2) done()
-      }
-      build.on('done', function(success) {
-        success.should.be.true
-        sandbox.restore()
-        done()
-      })
-      build.run()
-      build.state.should.equal('running')
-    })
-
-    it('should run with fetch', function(done) {
-      var build2 = Build({
-        commands: ['npm test']
-      , timeout: 5000
-      , project_id: 2
-      , repo_url: 'git://github.com/evanlucas/gcr-test.git'
-      , ref: 'origin/master'
-      , allow_git_fetch: false
-      , before_sha: 'blah'
-      , ref_name: 'master'
-      , id: 2
-      })
-      this.timeout(10000)
-      var sandbox = sinon.sandbox.create()
-      sandbox.stub(gcr.client, 'updateBuild', function(id, s, o, cb) {
-        cb && cb()
-      })
-      var count = 0
-      function next() {
-        count++
-        if (count === 2) done()
-      }
-      build2.on('done', function(success) {
-        success.should.be.true
-        sandbox.restore()
-        done()
-      })
-      build2.run()
-      build2.state.should.equal('running')
-    })
   })
 
   describe('client', function() {
