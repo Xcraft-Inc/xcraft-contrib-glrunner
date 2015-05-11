@@ -1,7 +1,7 @@
 {
-  "name": "gcr",
-  "version": "1.0.0",
-  "description": "A node gitlab-ci-runner",
+  "name": "xcraft-contrib-glrunner",
+  "version": "0.1.0",
+  "description": "Xcraft gitlab-ci runner",
   "main": "./lib/gcr.js",
   "bin": {
     "gcr": "./bin/cmd.js"
@@ -31,17 +31,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/evanlucas/gcr.git"
+    "url": "https://github.com/Xcraft-Inc/xcraft-contrib-glrunner"
   },
   "keywords": [
+    "xcraft",
     "gitlab",
     "ci",
     "runner"
   ],
-  "author": "Evan Lucas <evanlucas@me.com>",
+  "author": "Xcraft Team",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/evanlucas/gcr/issues"
+    "url": "https://github.com/Xcraft-Inc/xcraft-contrib-glrunner/issues"
   },
-  "homepage": "https://github.com/evanlucas/gcr"
+  "homepage": "https://github.com/Xcraft-Inc/xcraft-contrib-glrunner"
 }
